@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Menu</title>
+  </head>
+  <body>
+    <h1>Menu</h1>
+    <ul>
+      {% for pizza in pizzas %}
+        <li>{{ pizza.name }} - {{ pizza.ingredients }} - ${{ pizza.price }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+    <a href="{{ url_for('reviews') }}">View Reviews</a>
+  </body>
+</html>

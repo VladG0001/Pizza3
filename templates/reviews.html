@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Reviews</title>
+  </head>
+  <body>
+    <h1>Reviews</h1>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+      </p>
+      <p>
+        {{ form.content.label }}<br>
+        {{ form.content(cols=32, rows=4) }}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+    <ul>
+      {% for review in reviews %}
+        <li><strong>{{ review.name }}:</strong> {{ review.content }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+    <a href="{{ url_for('menu') }}">View Menu</a>
+  </body>
+</html>
